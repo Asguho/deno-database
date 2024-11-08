@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="stylesheet" href="style.css" />
     <title>People search</title>
+    <script type="module">
+        const people = await(fetch("/api/people").then((res) => res.json()))
+        let component = document.createElement("ul")
+        for (const individual of people) {
+            const li = document.createElement("li");
+
+            const name = document.createElement("span")
+            name.textContent = individual.name
+            li.appendChild(name)
+
+            const age = document.createElement("span")
+            age.textContent = individual.age
+            li.appendChild(age)
+
+            component.appendChild(li)
+        }
+        document.getElementById("peopleList").appendChild(component);
+    </script>
 </head>
 
 <body>
@@ -16,5 +35,6 @@
         </div>
     </section>
 </body>
+
 
 </html>

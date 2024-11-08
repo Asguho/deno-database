@@ -7,7 +7,7 @@ db.exec("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT
 db.exec("INSERT INTO people (name, age) VALUES (?,?)", "bob", 24);
 const routes: Route[] = [
   {
-    pattern: new URLPattern({ pathname: "/api" }),
+    pattern: new URLPattern({ pathname: "/api/people" }),
     handler: (req: Request) => new Response(JSON.stringify(db.prepare("select * from people").all())),
   },
 ];
