@@ -7,33 +7,32 @@
     <Link rel="stylesheet" href="style.css" />
     <title>People search</title>
     <script type="module">
-        const people = await(fetch("/api/people").then((res) => res.json()))
-        let component = document.createElement("ul")
-        for (const individual of people) {
-            const li = document.createElement("li");
+        const people = await fetch("/api/people").then(res => res.json());
+        const peopleListEle = document.getElementById("peopleList")
 
-            const name = document.createElement("span")
-            name.textContent = individual.name
-            li.appendChild(name)
-
-            const age = document.createElement("span")
-            age.textContent = individual.age
-            li.appendChild(age)
-
-            component.appendChild(li)
-        }
-        document.getElementById("peopleList").appendChild(component);
+        people.forEach(({ name, sirName, age }) => {
+            const card = document.createElement("div");
+            card.innerHTML = `
+            <div class="card">
+                <img src="img_avatar.png" alt="Avatar" style="width:100%">
+                <div class="cardContent">
+                    <h3><b>${name} ${sirName}</b></h3>
+                    <p>${age} år</p>
+                </div>
+            </div>
+            `;
+            peopleListEle.appendChild(card);
+        });
     </script>
 </head>
 
 <body>
-    <h1>Hello</h1>
-    <section id="peopleList">
-        <div class="card">
-
-
-        </div>
-    </section>
+    <div class="navbar">
+        <h1 class="">Hello</h1>
+        <a class="btn" href="/addPeople">Tilføj Bruger</a>
+    </div>
+    <div id="peopleList">
+    </div>
 </body>
 
 

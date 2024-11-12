@@ -4,10 +4,50 @@
 }
 
 .card {
-    background-color: dimgray;
+    /* background-color: dimgray; */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 20rem;
+    border-radius: 2rem 2rem;
 }
+.cardContent {
+  padding: 2px 16px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.btn {
+    border: none;
+    background-color: #04AA6D;
+    padding: 0.75rem;
+    color: white;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font: bold;
+    height: min-content;
+    text-decoration: none;
+}
+/* .label {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+} */
 
 body {
     max-width: 50rem;
     margin: auto
+}
+.hero{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#peopleList{
+    display: flex;
+    gap: 1rem;
 }

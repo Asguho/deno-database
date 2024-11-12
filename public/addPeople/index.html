@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="stylesheet" href="/style.css" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="hero">
+        <form action="/api/addPeople" method="POST" class="card">
+            <div style="padding: 4rem;">
+                <label for="" class="label">
+                    Fornavn
+                    <input type="text" name="name">
+                </label>
+                <label for="" class="label">
+                    Efternavn
+                    <input type="text" name="sirName">
+                </label>
+                <label for="" class="label">
+                    Alder
+                    <input type="number" name="age">
+                </label>
+                <label for="" class="label">
+                    <span>Tilføj Person</span>
+                    <input type="submit" class="btn" value="Tilføj">
+                </label>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
