@@ -9,9 +9,11 @@
     max-width: 20rem;
     border-radius: 2rem 2rem;
 }
+
 .cardContent {
   padding: 2px 16px;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -32,10 +34,6 @@
     height: min-content;
     text-decoration: none;
 }
-/* .label {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-} */
 
 body {
     max-width: 50rem;
@@ -49,5 +47,6 @@ body {
 }
 #peopleList{
     display: flex;
+    flex-flow: row wrap;
     gap: 1rem;
 }
