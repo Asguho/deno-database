@@ -11,29 +11,18 @@ Deno.serve(async (req) => {
   const pathname = new URL(req.url).pathname;
 
   if (pathname == '/api/people') {
-    return new Response(JSON.stringify(db.prepare('select * from people').all()));
+    return Response.json(db.prepare('select * from people').all());
   }
 
   if (pathname == '/api/addPeople') {
-    const formdata = await req.formData();
+    const formData = await req.formData();
+    const [name, sirName, age] = [formData.get('name'), formData.get('sirName'), formData.get('age')];
 
-    if (!(formdata.get('name') && formdata.get('sirName') && formdata.get('age'))) {
-      return new Response('Please fill all the fields');
-    }
+    if (!(name && sirName && age)) return new Response('Please fill all fields', { status: 400 });
 
-    db.exec(
-      'INSERT INTO people (name, sirName, age) VALUES (?,?, ?)',
-      formdata.get('name')?.toString(),
-      formdata.get('sirName')?.toString(),
-      formdata.get('age')?.toString()
-    );
+    db.exec('INSERT INTO people (name, sirName, age) VALUES (?, ?, ?)', name.toString(), sirName.toString(), age.toString());
 
-    return new Response(null, {
-      status: 303,
-      headers: {
-        Location: '/',
-      },
-    });
+    return Response.redirect(new URL("/", req.url), 303);
   }
 
   return serveDir(req, {
