@@ -4,10 +4,10 @@
 }
 
 .card {
-    /* background-color: dimgray; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 20rem;
     border-radius: 2rem 2rem;
+    overflow: hidden;
 }
 
 .cardContent {
@@ -36,7 +36,7 @@
 }
 
 body {
-    max-width: 50rem;
+    max-width: 62rem;
     margin: auto
 }
 .hero{

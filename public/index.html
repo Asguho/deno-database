@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <Link rel="stylesheet" href="style.css" />
-    <title>People search</title>
+    <title>People Manager</title>
     <script type="module">
         const people = await fetch("/api/people").then(res => res.json());
-        const peopleListEle = document.getElementById("peopleList")
+        const peopleListElement = document.getElementById("peopleList")
 
         people.forEach(({ name, sirName, age }) => {
             const card = document.createElement("div");
@@ -21,7 +21,7 @@
                 </div>
             </div>
             `;
-            peopleListEle.appendChild(card);
+            peopleListElement.appendChild(card);
         });
     </script>
 </head>
